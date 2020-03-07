@@ -8,5 +8,7 @@ namespace ImagePro.Models
     public class ImageModel
     {
         public string ImageStream { get; set; } 
+        public bool FlipVertically { get; set; }
+        public bool FlipHorizontally { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace ImagePro.Controllers
     public class ImageController : Controller
     {
         private ImageProHandler ImageProHandler;
-        private readonly ILogger logger;
+       
 
         public ImageController()
         {
@@ -34,7 +34,9 @@ namespace ImagePro.Controllers
    
             var imageStr = imagePro.ImageStream;
             ImageProHandler.LoadImage(imageStr);
-            var FlipImage = ImageProHandler.FlipImage(false, true);
+            var flipVer = imagePro.FlipVertically;
+            var flipHor = imagePro.FlipVertically;
+            var FlipImage = ImageProHandler.FlipImage(flipVer, flipHor);
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
             return await InputFormatterResult.SuccessAsync(FlipImage);

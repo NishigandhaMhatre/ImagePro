@@ -11,8 +11,9 @@ namespace ImagePro.Models
     {
         
         public new string ImageStream { get; set; } = "Initial";
-      
-   
+
+        public new bool FlipVertically { get; set; } = false;
+        public new bool FlipHorizontally { get; set; } = false;
 
         //object of the ImageFactory class
         public ImageFactory imageFactory = new ImageFactory(preserveExifData: true);
