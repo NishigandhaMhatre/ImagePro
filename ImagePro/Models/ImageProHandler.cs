@@ -14,6 +14,9 @@ namespace ImagePro.Models
 
         public new bool FlipVertically { get; set; } = false;
         public new bool FlipHorizontally { get; set; } = false;
+        public new float RotateByDegrees { get; set; } = 0;
+        public new bool RotateLeft { get; set; } = false;
+        public new bool RotateRight { get; set; } = false;
 
         //object of the ImageFactory class
         public ImageFactory imageFactory = new ImageFactory(preserveExifData: true);
@@ -37,6 +40,14 @@ namespace ImagePro.Models
         public byte[] FlipImage(bool FlipVertically, bool FlipHorizontally)
         {
             imageFactory.Flip(FlipVertically, FlipHorizontally)
+                        .Save(outStream);
+            var Content = outStream.ToArray();
+            return Content;
+        }
+
+        public byte[] RotatateImage(float RotateByDegrees)
+        {
+            imageFactory.Rotate(RotateByDegrees)
                         .Save(outStream);
             var Content = outStream.ToArray();
             return Content;
