@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 
 namespace ImagePro.Models
 {
-    public class ImageModel
+    //=========================================
+    // Model for flip image
+    public class FlipImage : ImageStream
     {
-        public string ImageStream { get; set; } 
+        public FlipParam Param { get; set; }
+    }
+    public class FlipParam
+    {
         public bool FlipVertically { get; set; }
         public bool FlipHorizontally { get; set; }
-        public float RotateByDegrees { get; set; }
-        public bool RotateLeft { get; set; } 
-        public bool RotateRight { get; set; } 
     }
 }
