@@ -1,3 +1,21 @@
+# Image Processing API Guide
+
+An API platform that provides a solution for image processing such as:
+
+* Flip Image
+* Rotate Image
+* Resize Image
+* GrayScale Image
+* Thumbnail of Image
+* Perform multiple above operation in sequence in one api call
+
+## Version
+* Version: [1.0.0]
+* Updated: [2020-03-12]
+
+## Introduction
+
+
 ### Example
 
 ```
