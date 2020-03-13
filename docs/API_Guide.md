@@ -20,6 +20,29 @@ An API platform that provides a solution for image processing such as:
 
 ```
 POST /multipleOperation
+Body:
+{
+"image" : "<base64 image string>"
+ "Param":{
+        "multipperationsequence": { [
+        "FLIP",
+        "ROTATE",
+        ],
+        },
+      "flipparam": { [
+          "flipvertically": true,
+          "fliphorizontally": false
+        ],
+        },
+        "rotateparam": {[
+        "rotatebydegrees": 90,
+        "rotateleft": true,
+        "rotateright": false
+        ],
+        },
+    }
+}
+
 200 OK
 {
   "result": "<base64 string of image>",
