@@ -27,7 +27,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/multipleOperation")]
+        [HttpPost(ApiRoute.MULTIPLEOPERATION)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -51,7 +51,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/flip")]
+        [HttpPost(ApiRoute.FLIP)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -71,7 +71,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/rotate")]
+        [HttpPost(ApiRoute.ROTATE)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -91,7 +91,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/resize")]
+        [HttpPost(ApiRoute.RESIZE)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -111,7 +111,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/thumbnail")]
+        [HttpPost(ApiRoute.THUMBNAIL)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -131,7 +131,7 @@ namespace ImagePro.Controllers
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        [HttpPost("/greyScale")]
+        [HttpPost(ApiRoute.GRAYSCALE)]
         [ProducesResponseType(typeof(ImageResult), 200)]
         [ProducesResponseType(typeof(EmptyInputError), 400)]
         [ProducesResponseType(typeof(InvalidOperationError), 405)]
@@ -153,11 +153,11 @@ namespace ImagePro.Controllers
         /// <returns></returns>
         public IActionResult ValidatedResponse(ImageResult response)
         {
-            if (response.message == OpMessage.InvalidOperation)
+            if (response.Message == OpMessage.InvalidOperation)
             {
                 return StatusCode(405, new InvalidOperationError() { });
             }
-            else if (response.message == OpMessage.InvalidInputParameter)
+            else if (response.Message == OpMessage.InvalidInputParameter)
             {
                 return StatusCode(409, new InvalidInputParameterError() { });
             }

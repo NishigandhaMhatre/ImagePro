@@ -34,7 +34,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             var param = inputs.MultiOperationParam;
             var flipOps = param.FlipParam;
@@ -47,7 +47,7 @@ namespace ImagePro.Service
 
             if (allOps != param.MultiOperationSequence.Count() || param.MultiOperationSequence.Count() == 0)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
             try
@@ -100,10 +100,10 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidOperation;
+                result.Message = OpMessage.InvalidOperation;
                 return result;
             }
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
         }
 
@@ -129,7 +129,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             try
             {
@@ -149,11 +149,11 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
 
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
         }
 
@@ -161,7 +161,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             try
             {
@@ -180,10 +180,10 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
 
         }
@@ -192,7 +192,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             try
             {
@@ -200,10 +200,10 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
         }
 
@@ -211,7 +211,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             try
             {
@@ -219,10 +219,10 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
         }
 
@@ -230,7 +230,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = OpMessage.Success
+                Message = OpMessage.Success
             };
             try
             {
@@ -243,10 +243,10 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = OpMessage.InvalidInputParameter;
+                result.Message = OpMessage.InvalidInputParameter;
                 return result;
             }
-            result.result = outStream.ToArray();
+            result.Result = outStream.ToArray();
             return result;
         }
 

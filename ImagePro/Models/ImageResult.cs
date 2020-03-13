@@ -8,8 +8,8 @@ namespace ImagePro.Models
 {
     public class ImageResult
     {
-        public byte[] result { get; set; }
-        public string message { get; set; }
+        public string Message { get; set; }
+        public byte[] Result { get; set; }
     }
     public class ImageStream
     {
