@@ -14,7 +14,7 @@ using System.Web.Http;
 
 namespace ImagePro.Service
 {
-    public class ImageProHandler : IImageProHandler
+    public class ImageProHandler
     {
         //object of the ImageFactory class
         public ImageFactory imageFactory { get; set; }
@@ -249,6 +249,7 @@ namespace ImagePro.Service
             result.Result = outStream.ToArray();
             return result;
         }
+
 
 
     }

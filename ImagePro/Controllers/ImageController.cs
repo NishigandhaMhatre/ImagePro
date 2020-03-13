@@ -43,7 +43,15 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.MultipleOperation(inputs);
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
+            if (response.Message == OpMessage.InvalidOperation)
+            {
+                return StatusCode(405, new InvalidOperationError() { });
+            }
+            else if (response.Message == OpMessage.InvalidInputParameter)
+            {
+                return StatusCode(409, new InvalidInputParameterError() { });
+            }
+            return Ok(response);
         }
 
         /// <summary>
@@ -63,7 +71,15 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.FlipImage(inputs);
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
+            if (response.Message == OpMessage.InvalidOperation)
+            {
+                return StatusCode(405, new InvalidOperationError() { });
+            }
+            else if (response.Message == OpMessage.InvalidInputParameter)
+            {
+                return StatusCode(409, new InvalidInputParameterError() { });
+            }
+            return Ok(response);
         }
 
         /// <summary>
@@ -83,7 +99,15 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.RotateImage(inputs);
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
+            if (response.Message == OpMessage.InvalidOperation)
+            {
+                return StatusCode(405, new InvalidOperationError() { });
+            }
+            else if (response.Message == OpMessage.InvalidInputParameter)
+            {
+                return StatusCode(409, new InvalidInputParameterError() { });
+            }
+            return Ok(response);
         }
 
         /// <summary>
@@ -103,7 +127,15 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.ResizeImage(inputs);
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
+            if (response.Message == OpMessage.InvalidOperation)
+            {
+                return StatusCode(405, new InvalidOperationError() { });
+            }
+            else if (response.Message == OpMessage.InvalidInputParameter)
+            {
+                return StatusCode(409, new InvalidInputParameterError() { });
+            }
+            return Ok(response);
         }
 
         /// <summary>
@@ -123,7 +155,15 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.ThumbnailImage();
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
+            if (response.Message == OpMessage.InvalidOperation)
+            {
+                return StatusCode(405, new InvalidOperationError() { });
+            }
+            else if (response.Message == OpMessage.InvalidInputParameter)
+            {
+                return StatusCode(409, new InvalidInputParameterError() { });
+            }
+            return Ok(response);
         }
 
         /// <summary>
@@ -143,16 +183,6 @@ namespace ImagePro.Controllers
             var response = ImageProHandler.GrayScaleImage();
             ImageProHandler.outStream.Close();
             ImageProHandler.inStream.Close();
-            return ValidatedResponse(response);
-        }
-
-        /// <summary>
-        /// Helper method to validate the response
-        /// </summary>
-        /// <param name="response"></param>
-        /// <returns></returns>
-        public IActionResult ValidatedResponse(ImageResult response)
-        {
             if (response.Message == OpMessage.InvalidOperation)
             {
                 return StatusCode(405, new InvalidOperationError() { });
@@ -163,5 +193,7 @@ namespace ImagePro.Controllers
             }
             return Ok(response);
         }
+
+  
     }
 }
