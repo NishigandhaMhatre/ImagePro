@@ -5,6 +5,8 @@ In this project you will find code examples, tools and documentation related to 
 
 ## Examples
 
+* API Example: [API_Guide.md](docs/API_Guide.md)
+
 ## Documents
 
 * API guide: [API_Guide.md](docs/API_Guide.md)
