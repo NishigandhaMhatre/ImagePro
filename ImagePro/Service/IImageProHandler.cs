@@ -10,11 +10,11 @@ namespace ImagePro.Service
     {
         ImageResult MultipleOperation(MultiOperation inputs);
         void LoadImage(String ImageStream);
-        byte[] FlipImage(FlipImage flipParam);
-        byte[] RotateImage(RotateImage rotate);
-        byte[] ResizeImage(ResizeImage resizeParam);
-        byte[] ThumbnailImage();
-        byte[] GrayScaleImage();
+        ImageResult FlipImage(FlipImage flipParam);
+        ImageResult RotateImage(RotateImage rotate);
+        ImageResult ResizeImage(ResizeImage resizeParam);
+        ImageResult ThumbnailImage();
+        ImageResult GrayScaleImage();
     }
 }
 

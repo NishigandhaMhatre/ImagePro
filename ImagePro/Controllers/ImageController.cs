@@ -153,11 +153,11 @@ namespace ImagePro.Controllers
         /// <returns></returns>
         public IActionResult ValidatedResponse(ImageResult response)
         {
-            if (response.message == "InvalidOperationError")
+            if (response.message == OpMessage.InvalidOperation)
             {
                 return StatusCode(405, new InvalidOperationError() { });
             }
-            else if (response.message == "InvalidInputParameterError")
+            else if (response.message == OpMessage.InvalidInputParameter)
             {
                 return StatusCode(409, new InvalidInputParameterError() { });
             }

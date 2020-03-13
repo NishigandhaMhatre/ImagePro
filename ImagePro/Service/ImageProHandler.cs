@@ -14,7 +14,7 @@ using System.Web.Http;
 
 namespace ImagePro.Service
 {
-    public class ImageProHandler
+    public class ImageProHandler : IImageProHandler
     {
         //object of the ImageFactory class
         public ImageFactory imageFactory { get; set; }
@@ -34,7 +34,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             var param = inputs.MultiOperationParam;
             var flipOps = param.FlipParam;
@@ -47,7 +47,7 @@ namespace ImagePro.Service
 
             if (allOps != param.MultiOperationSequence.Count() || param.MultiOperationSequence.Count() == 0)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
             try
@@ -55,7 +55,7 @@ namespace ImagePro.Service
                 param.MultiOperationSequence.ForEach(operation => {
                     switch (operation)
                     {
-                        case "FLIP":
+                        case Operations.FLIP:
                             var flipParam = flipOps[0];
                             flipOps.Remove(flipParam);
                             var fp = new FlipImage
@@ -64,7 +64,7 @@ namespace ImagePro.Service
                             };
                             FlipImage(fp);
                             break;
-                        case "ROTATE":
+                        case Operations.ROTATE:
                             var rotateParam = rotateOps[0];
                             rotateOps.Remove(rotateParam);
                             var rop = new RotateImage
@@ -73,7 +73,7 @@ namespace ImagePro.Service
                             };
                             RotateImage(rop);
                             break;
-                        case "RESIZE":
+                        case Operations.RESIZE:
                             var resizeParam = resizeOps[0];
                             resizeOps.Remove(resizeParam);
                             var rep = new ResizeImage
@@ -82,12 +82,12 @@ namespace ImagePro.Service
                             };
                             ResizeImage(rep);
                             break;
-                        case "GRAYSCALE":
+                        case Operations.GRAYSCALE:
                             var gsParam = gsOps[0];
                             gsOps.Remove(gsParam);
                             GrayScaleImage();
                             break;
-                        case "THUMBNAIL":
+                        case Operations.THUMBNAIL:
                             var tp = thumbnailOps[0];
                             thumbnailOps.Remove(tp);
                             ThumbnailImage();
@@ -100,7 +100,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidOperationError";
+                result.message = OpMessage.InvalidOperation;
                 return result;
             }
             result.result = outStream.ToArray();
@@ -129,7 +129,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             try
             {
@@ -149,7 +149,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
 
@@ -161,7 +161,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             try
             {
@@ -180,7 +180,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
             result.result = outStream.ToArray();
@@ -188,11 +188,11 @@ namespace ImagePro.Service
 
         }
 
-        internal ImageResult ResizeImage(ResizeImage resizeParam)
+        public ImageResult ResizeImage(ResizeImage resizeParam)
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             try
             {
@@ -200,7 +200,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
             result.result = outStream.ToArray();
@@ -211,7 +211,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             try
             {
@@ -219,7 +219,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
             result.result = outStream.ToArray();
@@ -230,7 +230,7 @@ namespace ImagePro.Service
         {
             var result = new ImageResult
             {
-                message = "Success"
+                message = OpMessage.Success
             };
             try
             {
@@ -243,7 +243,7 @@ namespace ImagePro.Service
             }
             catch (Exception ex)
             {
-                result.message = "InvalidInputParameterError";
+                result.message = OpMessage.InvalidInputParameter;
                 return result;
             }
             result.result = outStream.ToArray();
