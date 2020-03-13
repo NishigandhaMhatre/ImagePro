@@ -18,28 +18,29 @@ An API platform that provides a solution for image processing such as:
 
 ### Example
 
+Below is example of multiple image operation
+* Flip image vertically
+* Rotate image by 70 degree + rotate left (i.e. left by 90 degree)
+This should return image which is rotated towards right with 20 degree
 ```
 POST /multipleOperation
 Body:
 {
 "image" : "<base64 image string>"
  "Param":{
-        "multipperationsequence": { [
-        "FLIP",
-        "ROTATE",
-        ],
-        },
-      "flipparam": { [
+        "multipperationsequence": {[
+          "FLIP",
+          "ROTATE"
+        ]},
+        "flipparam": {[
           "flipvertically": true,
           "fliphorizontally": false
-        ],
-        },
-        "rotateparam": {[
-        "rotatebydegrees": 90,
-        "rotateleft": true,
-        "rotateright": false
-        ],
-        },
+        ]},
+       "rotateparam": {[
+          "rotatebydegrees": 70,
+          "rotateleft": true,
+          "rotateright": false
+       ]},
     }
 }
 
