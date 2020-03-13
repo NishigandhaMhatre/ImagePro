@@ -1,7 +1,5 @@
 # Image Processing
 
-# solaris Digital Assets Platform
-
 In this project you will find code examples, tools and documentation related to the
 *Image processing*.
 
