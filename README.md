@@ -5,6 +5,7 @@ API to perform to support below operations on a Image send over wire:
 2. Rotate Image
 3. Convert to GreyScale
 4. Convert into thumbnail
+5. Resize Image
 
 API supported multiple operations to be performed on Image in one go.
 
